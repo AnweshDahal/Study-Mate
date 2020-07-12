@@ -1,0 +1,193 @@
+@import "material_design_colors_full";
+@import "fonts";
+@import "variables";
+@import "mixins";
+
+:root {
+	font-size: 16px;
+	@include back-gradient();
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.formWrapper {
+	padding: 1rem 0.75rem 0.75rem 0.75rem;
+	background-color: #181818;
+	width: 26rem;
+	border-radius: 0.6rem;
+	box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.35);
+	.title {
+		text-align: center;
+		a p {
+			margin: 0rem;
+			padding-top: 0.5rem;
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 2rem;
+			font-family: "TitilliumWeb-SemiBold";
+			@include text-gradient($begin: #0690f1, $end: #0689f0);
+			span {
+				font-size: 1.8rem;
+				display: inline-block;
+				vertical-align: middle;
+				font-family: "Kalam-Regular";
+			}
+		}
+	}
+
+	.topic p {
+		text-align: center;
+		margin: 0px;
+		font-size: 2rem;
+		font-family: "OpenSans-Regular";
+		padding-top: 0.5rem;
+		color: $text-color;
+	}
+
+	.message {
+		padding: 0rem 1.75rem 0rem 1.75rem;
+		.message-success {
+			text-align: center;
+			margin: 0rem;
+			padding-top: 0.5rem;
+			color: #7cb342;
+			font-family: "OpenSans-Regular";
+			font-size: 1rem;
+		}
+
+		.message-danger {
+			text-align: center;
+			margin: 0rem;
+			padding-top: 0.5rem;
+			color: #f44336;
+			font-family: "OpenSans-Regular";
+			font-size: 1rem;
+		}
+
+		.message-info {
+			text-align: center;
+			margin: 0rem;
+			padding-top: 0.5rem;
+			color: #ffc107;
+			font-family: "OpenSans-Regular";
+			font-size: 1rem;
+		}
+	}
+
+	.message p {
+		text-align: center;
+		margin: 0rem;
+		padding-top: 0.5rem;
+		color: $text-color;
+		font-family: "OpenSans-Regular";
+		font-size: 1rem;
+	}
+
+	form {
+		padding-top: 0.5rem;
+		.form-group {
+			border: 0px solid transparent;
+			padding: 0rem;
+			margin: 0rem;
+			#remem {
+				padding-top: 1rem;
+				p {
+					margin-bottom: 0rem;
+				}
+			}
+
+			.row {
+				padding: 0rem 1rem 0rem 1rem;
+				margin: 0rem;
+				a {
+					padding-left: 0.75rem;
+					font-family: "OpenSans-Regular";
+					font-size: 0.9rem;
+					color: $text-color;
+				}
+
+				.input-field {
+					margin-bottom: 0px;
+					span.danger {
+						color: #f44336;
+						font-size: 0.85rem;
+						font-family: "OpenSans-Regular";
+					}
+
+					#picture {
+						color: $text-color;
+					}
+
+					.form-input {
+						color: $text-color;
+						font-size: 1.1rem;
+						font-family: "OpenSans-Regular";
+					}
+
+					.form-input.invalid ~ .form-label {
+						color: #f44336;
+					}
+
+					.form-input.invalid {
+						color: #f44336;
+					}
+
+					.invalid-feedback {
+						color: #f44336;
+					}
+
+					.form-label {
+						font-size: 1rem;
+						font-family: "OpenSans-Regular";
+					}
+
+					.label label {
+						font-family: "OpenSans-Regular";
+					}
+				}
+
+				p {
+					padding-left: 0.75rem;
+					margin: 0.5rem 0rem 0.5rem 0rem;
+					label span label {
+						font-size: 1rem;
+						font-family: "OpenSans-Regular";
+					}
+				}
+			}
+		}
+
+		.row#lower {
+			padding: 1rem 1.75rem 0rem 1.75rem;
+			margin: 0rem 0rem 2rem 0rem;
+			#submit-area {
+				padding: 0rem;
+				height: 2.25rem;
+				line-height: 2.25rem;
+				a {
+					font-family: "OpenSans-SemiBold";
+					font-size: 1rem;
+					@include text-gradient($begin: #0690f1, $end: #0689f0);
+				}
+
+				#button .btn {
+					border-radius: 0.3rem;
+					color: $text-color;
+					font-size: 0.8rem;
+					font-family: "OpenSans-SemiBold";
+					text-transform: none;
+					background-image: linear-gradient(to bottom right, #0690f1, #0689f0);
+					background-color: #045de9;
+					&:hover {
+						@include back-gradient($begin: #119afc, $end: #199cff);
+					}
+				}
+			}
+		}
+	}
+}

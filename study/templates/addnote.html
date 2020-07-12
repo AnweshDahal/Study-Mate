@@ -1,0 +1,14 @@
+{% extends 'layoutnote.html' %} {% block content %} {{
+ckeditor.load(custom_url=url_for('static', filename='js/' + 'ckeditor.js')) }}
+<div class="post-body">
+	<div class="post-wrapper">
+		<div class="greet">
+			Create Your Notes
+		</div>
+		<div class="body">
+			<div class="editor"></div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

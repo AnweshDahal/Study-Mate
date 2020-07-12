@@ -1,0 +1,68 @@
+@media only screen and (max-width: 600px) {
+	.acc-cred .name {
+		font-size: 6.5vw !important;
+		height: 6.5vw !important;
+		line-height: 6.5vw !important;
+		margin-bottom: 1.05vw !important;
+	}
+	.acc-cred .email {
+		height: 3.5vw !important;
+		line-height: 3.5vw !important;
+		margin-bottom: 0.55vw !important;
+		width: 100%;
+		font-size: 3.5vw !important;
+		font-family: "Lexend-Deca";
+		color: rgba(255, 255, 255, 0.85);
+	}
+	.col .grid {
+		padding-right: 0rem !important;
+		max-width: 420px !important;
+	}
+	.col .grid-item {
+		min-width: 404px;
+	}
+	.account-wrapper .grid {
+		padding: 1rem 0rem 0rem 0rem !important;
+		min-width: 385.767px !important;
+		max-width: 385.767px !important;
+	}
+	.account-wrapper .grid .grid-item {
+		min-width: 385.767px !important;
+		max-width: 385.767px !important;
+	}
+	.material-tooltip {
+		min-width: 404px;
+		max-width: 404px;
+		.tooltip-content {
+			.post-description {
+				min-width: 382.6px;
+			}
+		}
+	}
+	#toast-container {
+		top: auto !important;
+		right: auto !important;
+		left: 0% !important;
+		bottom: 0% !important;
+		margin-left: 0% !important;
+		width: auto !important;
+	}
+}
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+	.acc-cred .name {
+		font-size: 4.5vw !important;
+		height: 4.5vw !important;
+		line-height: 4.5vw !important;
+		margin-bottom: 0.95vw !important;
+	}
+	.acc-cred .email {
+		height: 2.5vw !important;
+		line-height: 2.5vw !important;
+		margin-bottom: 0.5vw !important;
+		width: 100%;
+		font-size: 2.5vw !important;
+		font-family: "Lexend-Deca";
+		color: rgba(255, 255, 255, 0.85);
+	}
+}

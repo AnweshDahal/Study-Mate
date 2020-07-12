@@ -1,0 +1,29 @@
+@import "variables";
+
+.material-tooltip {
+	padding: 0.7rem;
+	background-color: #202020;
+	box-shadow: 0 5px 8px 5px rgba(0, 0, 0, 0.35);
+	width: 14.375rem;
+	border-radius: 0.3rem;
+	.tooltip-content {
+		text-align: left;
+		.post-date-posted {
+			font-size: 0.85rem;
+			font-family: "OpenSans-Regular";
+			opacity: 0.6;
+		}
+		.post-description {
+			margin: 0.4rem 0px 0.2rem 0px;
+			font-size: 0.9rem;
+			font-family: "OpenSans-Regular";
+			color: $text-color;
+			width: 12.975rem;
+			opacity: 0.38;
+			display: -webkit-box;
+			-webkit-line-clamp: 5;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+	}
+}

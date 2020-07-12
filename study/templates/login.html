@@ -1,0 +1,67 @@
+{% extends "layoutform.html" %} {% block content %}
+<div class="topic">
+	<p>Sign In</p>
+</div>
+<div class="message">
+	{% with messages = get_flashed_messages(with_categories = true) %} {% if
+	messages %} {% for category, message in messages %}
+	<div class="message-{{ category }}">
+		{{ message }}
+	</div>
+	{% endfor %} {% else %}
+	<p>Use your StudyMate account</p>
+	{% endif %} {% endwith %}
+</div>
+<form method="POST" action="">
+	{{ form.hidden_tag() }}
+	<fieldset class="form-group">
+		<div class="row">
+			<div class="input-field col s12">
+				{% if form.email.errors %} {{ form.email( class = "form-input invalid" )
+				}}
+				<div class="invalid-feedback">
+					{% for error in form.email.errors %}
+					<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+				{% else %} {{ form.email( class = "form-input" ) }} {% endif %} {{
+				form.email.label( class = "form-label" ) }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				{% if form.password.errors %} {{ form.password( class = "form-input
+				invalid" ) }}
+				<div class="invalid-feedback">
+					{% for error in form.password.errors %}
+					<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+				{% else %} {{ form.password( class = "form-input" ) }} {% endif %} {{
+				form.password.label( class = "form-label" ) }}
+			</div>
+		</div>
+		<div class="row">
+			<a href="#">Forgot Password?</a>
+		</div>
+		<div class="row" id="remem">
+			<p>
+				<label>
+					{{ form.remember() }}
+					<span>{{ form.remember.label(class='form-check-label') }}</span>
+				</label>
+			</p>
+		</div>
+	</fieldset>
+	<div class="row" id="lower">
+		<div class="col s6 pull-6" id="submit-area">
+			<a href="{{ url_for('register') }}">Create an account</a>
+		</div>
+		<div class="col s6 push-6" id="submit-area">
+			<div class="right" id="button">
+				{{ form.submit( class="btn" ) }}
+			</div>
+		</div>
+	</div>
+</form>
+{% endblock content %}

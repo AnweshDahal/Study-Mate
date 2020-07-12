@@ -1,0 +1,127 @@
+@import "variables";
+@import "mixins";
+
+.sidenav {
+	background-color: $background-color;
+	border: 0px solid transparent;
+	// box-shadow: none;
+	.sidenav-options {
+		// position: relative;
+		top: 0px;
+		height: auto;
+		.sidenav-opt-pri {
+			font-size: 1.3rem;
+			font-family: "Lexend-Deca";
+			color: $text-color;
+			&:hover {
+				background-color: #181818;
+				color: $text-hover;
+			}
+		}
+		.cont-pri {
+			@include border-bottom-add();
+			.notes {
+				@include border-bottom-add();
+				padding-bottom: 0.7rem;
+				&:hover {
+					background-color: #181818;
+				}
+			}
+			.sub {
+				padding-top: 0.2rem;
+				padding-bottom: 0.7rem;
+				&:hover {
+					background-color: #181818;
+				}
+			}
+		}
+		.cont-set {
+			a.sidenav-opt-set {
+				font-size: 1.3rem;
+				font-family: "Lexend-Deca";
+				color: $text-color;
+				&:hover {
+					color: $text-hover;
+					background-color: inherit;
+				}
+				&:hover i {
+					color: $text-hover;
+				}
+			}
+			i {
+				margin-right: 0.5rem;
+				font-size: 1.4rem;
+				color: $text-color;
+			}
+		}
+		ul .sidenav-opt-sec {
+			font-size: 1rem;
+			font-family: "Lexend-Deca";
+			color: $text-color;
+			&:hover {
+				background-color: #181818;
+				color: $text-hover;
+			}
+			&:hover i {
+				color: $text-hover;
+			}
+			i {
+				margin-right: 0.5rem;
+				margin-left: 0.5rem;
+				color: $text-color;
+			}
+			i.fas.fa-atom {
+				margin-left: 0.7rem;
+				font-size: 1.5rem;
+				color: $text-color;
+			}
+		}
+	}
+	.hide-on-med-and-up {
+		margin-bottom: 0.2rem;
+		padding: 0rem !important;
+		padding-top: 0.2rem;
+		width: 100%;
+		box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.25);
+		height: auto;
+		.col {
+			@include height-fix();
+			padding: 0px;
+			line-height: 3.4rem;
+			.account-img {
+				height: 2.7rem;
+				display: inline-block;
+				vertical-align: middle;
+				padding-left: 1rem;
+				padding-right: 1rem;
+			}
+			a {
+				font-size: 1.5rem;
+				font-family: "OpenSans-SemiBold";
+				display: inline-block;
+				vertical-align: middle;
+				color: $text-color;
+				height: 2rem;
+				line-height: 2.65rem;
+				&:hover {
+					color: $text-hover;
+				}
+			}
+			span {
+				font-size: 0.8rem;
+				height: 1.6rem;
+				line-height: 1.4rem;
+				display: table-cell;
+				vertical-align: middle;
+				color: $text-color;
+				opacity: 0.8;
+				font-family: "OpenSans-Regular";
+			}
+		}
+		.col.s9.push-s3 {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+}

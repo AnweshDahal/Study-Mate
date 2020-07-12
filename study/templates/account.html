@@ -1,0 +1,84 @@
+{% extends "layoutcentered.html" %} {% block content %}
+<div class="account-wrapper">
+	<div class="account-info row">
+		<div class="acc-img col s4">
+			<a href="{{ url_for('update') }}">
+				<img src="{{ image_file }}" alt="Profile" />
+				<i class="material-icons">edit</i>
+			</a>
+		</div>
+		<div class="acc-cred col s8">
+			<div class="name">
+				{{ current_user.username }}
+			</div>
+			<div class="email">
+				{{ current_user.email }}
+			</div>
+		</div>
+	</div>
+	<div class="heading">
+		<div class="row">
+			<div class="col s6">
+				<p class="topic">
+					My Notes
+				</p>
+			</div>
+			<div class="col s6">
+				<ul class="pagination right hide-on-med-and-down">
+					<li class="disabled">
+						<a href="#!"><i class="material-icons">chevron_left</i></a>
+					</li>
+					<li class="active"><a href="#!">1</a></li>
+					<li class="waves-effect"><a href="#!">2</a></li>
+					<li class="waves-effect"><a href="#!">3</a></li>
+					<li class="waves-effect"><a href="#!">4</a></li>
+					<li class="waves-effect"><a href="#!">5</a></li>
+					<li class="waves-effect">
+						<a href="#!"><i class="material-icons">chevron_right</i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div
+		class="grid"
+		data-masonry='{ "itemSelector": ".grid-item", "columnWidth": ".grid-item", "percentPosition": "true", "gutter": 32 }'
+	>
+		{% for post in posts %}
+		<div
+			class="tooltipped grid-item waves-effect"
+			data-position="bottom"
+			data-tooltip='
+			<span class="post-date-posted">Made on {{ post.date }}</span>
+			<p class="post-description">{{ post.content }}</p>'
+		>
+			<div class="sub-head">
+				<a href="#" class="subject">{{ post.subject }}</a
+				><span class="topic"> {{ post.topic }}</span>
+			</div>
+			<div class="post">
+				<div class="post-title">
+					<a href="#">{{ post.title }}</a>
+				</div>
+				<div class="post-metadata">
+					by <a href="#" class="post-author">{{ post.author }}</a>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<ul class="hide-on-large-only pagination left">
+		<li class="disabled">
+			<a href="#!"><i class="material-icons">chevron_left</i></a>
+		</li>
+		<li class="active"><a href="#!">1</a></li>
+		<li class="waves-effect"><a href="#!">2</a></li>
+		<li class="waves-effect"><a href="#!">3</a></li>
+		<li class="waves-effect"><a href="#!">4</a></li>
+		<li class="waves-effect"><a href="#!">5</a></li>
+		<li class="waves-effect">
+			<a href="#!"><i class="material-icons">chevron_right</i></a>
+		</li>
+	</ul>
+</div>
+{% endblock content %}

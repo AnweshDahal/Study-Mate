@@ -1,0 +1,97 @@
+@mixin hover-fix {
+	background-color: transparent;
+	outline: none;
+}
+
+@mixin height-fix {
+	max-height: 3.75rem;
+	min-height: 3.75rem;
+	line-height: 3.75rem;
+}
+
+@mixin align-fix {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+@mixin border-bottom-add {
+	border: 1px solid transparent;
+	border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+@mixin card-color-set($bg-color, $bg-hover, $txt) {
+	background-color: $bg-color;
+	color: $txt;
+	&:hover {
+		background-color: $bg-hover;
+		.sub-head {
+			a {
+				color: $txt;
+			}
+		}
+		.post {
+			.post-title a {
+				color: $text-color;
+			}
+		}
+	}
+	.sub-head {
+		a {
+			color: rgba(255, 255, 255, 0.5);
+		}
+		span {
+			color: rgba(255, 255, 255, 0.4);
+		}
+	}
+	.post {
+		.post-title a {
+			color: $text-color;
+			&:hover {
+				color: $text-hover;
+			}
+		}
+		.post-metadata {
+			padding-top: 0.1rem;
+			font-family: "SourceSansPro-Regular";
+			color: $text-color;
+			opacity: 0.8;
+			a.post-author {
+				font-family: "SourceSansPro-Regular";
+				color: $text-color;
+				&:hover {
+					color: $txt;
+				}
+			}
+		}
+	}
+}
+
+@mixin pagination-fix {
+	li a {
+		font-family: "Lexend-Deca";
+		color: $text-color;
+		opacity: 0.67;
+	}
+	.active {
+		background-color: #242424;
+		box-shadow: 0 3px 6px 3px rgba(0, 0, 0, 0.25);
+		font-family: "Lexend-Deca";
+		color: $text-color;
+		opacity: 0.87;
+	}
+	.disabled {
+		color: $text-color;
+		opacity: 0.38;
+	}
+}
+
+@mixin back-gradient($begin: #045de9, $end: #09c6f9) {
+	background-color: #045de9;
+	background-image: linear-gradient(315deg, $begin 0%, $end 74%);
+}
+
+@mixin text-gradient($begin, $end) {
+	background: -webkit-linear-gradient(315deg, $begin 0%, $end 74%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

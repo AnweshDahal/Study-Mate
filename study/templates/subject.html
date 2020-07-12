@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{% if title %}
+		<title>Study - {{ title }}</title>
+		{% else %}
+		<title>Study</title>
+		{% endif %}
+		<!--    Google Icon Font    -->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round"
+			rel="stylesheet"
+		/>
+		<!--    Font Awesome Icons    -->
+		<script
+			src="https://kit.fontawesome.com/805b84f021.js"
+			crossorigin="anonymous"
+		></script>
+		<!--    Bootstrap CSS    -->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{{ url_for('static', filename='css/' + 'materialize.min.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{{ url_for('static', filename='css/' + 'main.css') }}"
+		/>
+	</head>
+	<body>
+		<ul id="mySidenav" class="sidenav">
+			<li class="row hide-on-med-and-up">
+				<div class="col s9 push-s3">
+					{% if current_user.is_authenticated %}
+					<a href="{{ url_for('account') }}" class="sidenav-acc-name"
+						>{{ current_user.username }}</a
+					>
+					<span>
+						{{ current_user.email }}
+					</span>
+					{% else %}
+					<a href="{{ url_for('login') }}" class="sidenav-acc-name"
+						>Not Signed In</a
+					>
+					<span>
+						Sign In to access your notes
+					</span>
+					{% endif %}
+				</div>
+				<div class="col s3 pull-s9">
+					<img
+						class="circle account-img"
+						src="{{ url_for('static', filename='profile_pics/' + 'default.jpg') }}"
+					/>
+				</div>
+			</li>
+			<ul class="sidenav-options">
+				<div class="cont-pri">
+					<li class="notes">
+						<a href="#" class="sidenav-opt-pri">My Notes</a>
+						<ul>
+							<li>
+								<a href="#" class="sidenav-opt-sec">
+									<i class="material-icons">done</i>Saved Notes
+								</a>
+							</li>
+							<li>
+								<a href="#" class="sidenav-opt-sec">
+									<i class="material-icons">image</i>Captured Notes
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li class="sub">
+						<a href="#" class="sidenav-opt-pri">Subjects</a>
+						<ul class="sidenav-opt-sec">
+							<li>
+								<a href="#" class="sidenav-opt-sec">
+									<i class="material-icons">book</i>English
+								</a>
+							</li>
+							<li>
+								<a href="#" class="sidenav-opt-sec">
+									<i class="material-icons">calculate</i>Mathematics
+								</a>
+							</li>
+							<li>
+								<a href="#" class="sidenav-opt-sec">
+									<i class="fas fa-atom"></i>Physics
+								</a>
+							</li>
+							<li>
+								<a href="#" class="sidenav-opt-sec">
+									<i class="material-icons">science</i>Chemistry
+								</a>
+							</li>
+							<li>
+								<a href="#" class="sidenav-opt-sec">
+									<i class="material-icons">more_horiz</i>More
+								</a>
+							</li>
+						</ul>
+					</li>
+				</div>
+				<div class="cont-set">
+					<li>
+						<a href="#" class="sidenav-opt-set"
+							><i class="material-icons">settings</i>Settings
+						</a>
+					</li>
+				</div>
+			</ul>
+		</ul>
+		<div class="navbar-fixed">
+			<nav class="no-shadow">
+				<div class="nav-wrapper">
+					<div class="row">
+						<div class="col s3 push-s9">
+							<a href="#" class="right account hide-on-small-only">
+								<img
+									class="circle account-img dropdown-trigger"
+									src="{{ url_for('static', filename='profile_pics/' + 'default.jpg') }}"
+									data-target="acc-setting"
+								/>
+								<ul id="acc-setting" class="dropdown-content">
+									{% if current_user.is_authenticated %}
+									<li>
+										<a
+											href="{{ url_for('account') }}"
+											class="acc-opt waves-effect"
+											><i class="material-icons">person</i>
+											<span class="opt">My Account</span></a
+										>
+									</li>
+									<li>
+										<a
+											href="{{ url_for('logout') }}"
+											class="acc-opt waves-effect"
+											><i class="material-icons">power_off</i>
+											<span class="opt">Sign Out</span></a
+										>
+									</li>
+									{% else %}
+									<li>
+										<a
+											href="{{ url_for('register') }}"
+											class="acc-opt waves-effect"
+											><i class="material-icons">person_add</i>
+											<span class="opt">Register</span></a
+										>
+									</li>
+									<li>
+										<a
+											href="{{ url_for('login') }}"
+											class="acc-opt waves-effect"
+											><i class="material-icons">login</i>
+											<span class="opt">Login</span></a
+										>
+									</li>
+									{% endif %}
+								</ul>
+							</a>
+							<a href="{{ url_for('newnote') }}" class="right add-notes"
+								><i class="material-icons">add</i></a
+							>
+						</div>
+						<div class="col s9 pull-s3">
+							<a
+								href="#"
+								data-target="mySidenav"
+								class="sidenav-trigger show-on-large"
+								><i class="material-icons">menu</i></a
+							>
+							<a href="#" class="logo">Study<span>Mate</span></a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<div class="main">
+			<div id="hidden-messages">
+				{% with messages = get_flashed_messages(with_categories = true) %} {% if
+				messages %} {% for category, message in messages %}
+				<div id="message">
+					{{ message }}
+				</div>
+				{% endfor %} {% endif %} {% endwith %}
+			</div>
+			<div class="row">
+				<div class="col m1 l1 hide-on-small-only"></div>
+				<div class="col s12 m9 l9">
+					{% block content %}{% endblock %}
+				</div>
+				<div class="col m2 l2 hide-on-small-only"></div>
+			</div>
+		</div>
+		<!--    JQuery, Popper.js, Materialize.js     -->
+		<script src="{{ url_for('static', filename='js/' + 'jquery-3.5.1.slim.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/' + 'materialize.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/' + 'masonry.pkgd.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/' + 'main.js') }}"></script>
+	</body>
+</html>
